@@ -1,6 +1,6 @@
-import './assets/main.css'
-
+import './assets/styles/main.scss'
 import { createApp } from 'vue'
+// eslint-disable-next-line
 import App from './App.vue'
 import router from './router'
 

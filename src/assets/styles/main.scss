@@ -1,0 +1,54 @@
+@import "variables.scss";
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style-position: inside;
+}
+ul {
+  list-style: none;
+}
+
+html,
+body {
+    font-family: "Inter", serif; // Add font
+    font-size: 20px;
+    line-height: 1.2em;
+    font-weight: 400;
+    color: white;
+    background-image: radial-gradient(#26526F, #0F222F);
+    scroll-behavior: smooth;
+    height: 100%;
+}
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    overscroll-behavior: none;
+
+    &.scroll-lock {
+        overflow: hidden !important;
+    }
+}
+
+.container {
+  margin: 0 auto;
+  // width: 95vw;
+  width: 1155px;
+}
