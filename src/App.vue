@@ -3,6 +3,11 @@
   <main class="main container">
     <RouterView />
   </main>
+  <img 
+    alt=""
+    class="bg bg__1"
+    src="/steam-bg.png"
+  >
   <!-- Footer -->
 </template>
 
@@ -14,4 +19,13 @@ import TheHeader from '@/components/TheHeader.vue'
 .main {
   padding: 100px 0;
 }
+.bg {
+  position: absolute;
+  &__1 {
+    top: 100px;
+    left: 200px;
+    width: 70vw;
+  }
+}
+
 </style>
