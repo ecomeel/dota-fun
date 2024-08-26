@@ -3,11 +3,13 @@
   <main class="main container">
     <RouterView />
   </main>
-  <img 
+  <!--
+    <img 
     alt=""
     class="bg bg__1"
     src="/steam-bg.png"
-  >
+    > 
+  -->
   <!-- Footer -->
 </template>
 
