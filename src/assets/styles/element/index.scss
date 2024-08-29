@@ -1,37 +1,14 @@
 @forward 'element-plus/theme-chalk/src/common/var' with (
   $input: (
     'text-color': #FFFFFF,
-    // 'border-radius': 15px,
-    // 'bg-color': #26526F8C,
     'border-color': transparent,
     'placeholder-color': #FFFFFFB2,
     'hover-border-color': transparent,
-    'focus-border-color': #6d859c,
+    'focus-border-color':c,
     'focus-border': 2px,
   ),
   $input-number-width: (
     'default': 100%
-  ),
-  $select: (
-    'border-color-hover': transparent,
-    'input-focus-border-color': transparent,
-    'font-size': inherit
-  ),
-  $select-option: (
-    'hover-background': #ABEC20,
-  ),
-  $select-wrapper-padding: (
-    'default': var(--select-wrapper-padding, 1px 11px),
-  ),
-  $radio-checked: (
-    'input-border-color':  var(--el-radio-checked-border-color),
-    'text-color': var(--el-radio-checked-text),
-    'icon-color':  var(--el-radio-checked-border-color),
-  ),
-  $dropdown: (
-    'menuItem-hover-fill': #ABEC20,
-    'menuItem-hover-color': #000000,
-    'menu-box-shadow': transparent,
   ),
   $collapse: (
     'header-height': min-content,
@@ -44,16 +21,6 @@
   $select-dropdown: (
     'max-height': var(--el-dropdown-max-height),
   ),
-  $checkbox: (
-    'input-height': var(--el-checkbox-height),
-    'input-width': var(--el-checkbox-width),
-    'bg-color': transparent,
-    'input-border-color-hover': #ABEC20,
-    'checked-input-border-color': #ABEC20,
-    'checked-bg-color': #ABEC20,
-    'checked-icon-color': #ABEC20,
-    'checked-text-color': inherit
-  )
 );
 @use 'element-plus/theme-chalk/src/mixins/function' as *;
 @use 'element-plus/theme-chalk/src/input';
@@ -93,13 +60,22 @@
 .el-input {
   --el-component-size: 52px;
   --el-font-size-base: 20px;
+  --el-input-focus-border-color: #6d859c;
+
   &__wrapper {
     --el-input-bg-color: #26526F8C;
     --el-input-border-radius: 15px;
     padding: 11px 15px;
+    &[type=total] {
+      cursor: default !important;
+    }
   }
   &__inner {
     --el-input-inner-height: 30px;
+
+    &[type=number] {
+      text-align: left;
+    }
   }
 }
 
@@ -127,5 +103,37 @@
         left: 95.5% !important;
       }
     }
+  }
+  &__stop {
+    --el-slider-stop-bg-color: transparent
+  }
+}
+
+.el-checkbox {
+  white-space: unset;
+
+  &__input {
+    --el-checkbox-input-height: 27px;
+    --el-checkbox-input-width: 27px;
+    --el-checkbox-checked-bg-color: white;
+    --el-checkbox-checked-icon-color: black;
+    --el-checkbox-checked-input-border-color: #5d7399;
+  }
+  &__inner {
+    --el-checkbox-border-radius: 3px;
+    &:after {
+      width: 10px;
+      height: 15px;
+      left: calc(50% - 6px);
+      border-width: 2px;
+    }
+  }
+  &__label {
+    --el-checkbox-font-size: 12px;
+    font-family: Inter, sans-serif;
+    line-height: 1.25em;
+    color: #bcbcbc7e;
+    --el-checkbox-checked-text-color: #b4bbc9;
+
   }
 }
