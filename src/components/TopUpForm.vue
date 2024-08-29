@@ -1,31 +1,49 @@
 <template>
   <ElForm class="topup" :model="form">
     <div class="topup__form">
-      <ElFormItem label="Логин Steam">
+      <ElFormItem class="topup__item" label="Логин Steam">
         <ElInput
           v-model="form.name"
           class="topup__input" 
           placeholder="Ваш логин"
         >
-          <template #append>
-            <div class="topup__input--tip">
+          <!-- <template #append> -->
+            <!--
+              <div class="topup__input--tip">
+              <p>Где взять логин</p>
+              <div class="topup__input--tip-icon">?</div>
+              </div> 
+            -->
+          <!-- </template> -->
+        </ElInput>
+        <div class="topup__input--tip">
               <p>Где взять логин</p>
               <div class="topup__input--tip-icon">?</div>
             </div>
-          </template>
-        </ElInput>
       </ElFormItem>
-      <ElFormItem label="Сумма">
-        <ElInput v-model="form.amount" type="number">
+      <ElFormItem class="topup__item" label="Сумма">
+        <ElInput 
+          v-model="form.amount"
+          :max="priceRange.max"
+          :min="priceRange.min"
+          placeholder="Введите сумму"
+          type="number"
+        >
           <template #append>
             <p class="topup__input--tip">Комиссия сервиса 18%</p>
           </template>
         </ElInput>
-        <p class="topup">До 10 000 рублей</p>
+        <p class="topup__input--description">До 10 000 рублей</p>
       </ElFormItem>
       <ElFormItem>
-        <ElSlider v-model="form.amount" />
-        <p>Время зачисления до 60 секунд</p>
+        <ElSlider 
+          v-model="form.amount"
+          :marks="priceRangeMarks"
+          :max="priceRange.max"
+          :min="priceRange.min"
+          :show-tooltip="false" 
+        />
+        <p class="topup__input--description slider__description">Время зачисления до 60 секунд</p>
       </ElFormItem>
       <ElFormItem label="Почта">
         <ElInput />
@@ -42,8 +60,18 @@ import { ref } from 'vue'
 
 const form = ref({
   name: '',
-  amount: 0,
+  amount: null,
 })
+
+const priceRange = {
+  min: 100,
+  max: 10000
+}
+
+const priceRangeMarks = {
+  [priceRange.min]: priceRange.min + ' ₽',
+  [priceRange.max]: priceRange.max + ' ₽'
+}
 </script>
 
 <style scoped lang="scss">
@@ -57,6 +85,9 @@ const form = ref({
     border-radius: 15px;
     background-color: #1529368C;
   }
+  &__item {
+    position: relative;
+  }
   &__input {
     &--tip {
       position: absolute;
@@ -64,8 +95,6 @@ const form = ref({
       top: calc(50% - 8px);
       display: flex;
       column-gap: 5px;
-      // font-size: 12px;
-      // color: #FFFFFFB2;
       @extend %extra-small;
 
       &-icon {
@@ -74,33 +103,43 @@ const form = ref({
         border-radius: 100%;
       }
     }
+    &--description {
+      margin-top: 8px;
+      @extend %extra-small;
+    }
+  }
+}
+
+.slider {
+  &__description {
+    margin-top: 12px;
   }
 }
 </style>
 
 <style lang="scss">
-.el-form-item__label {
-  margin-bottom: 5px;
-}
-.el-input {
-  position: relative;
-  &__wrapper {
+// .el-form-item__label {
+//   margin-bottom: 5px;
+// }
+// .el-input {
+//   position: relative;
+//   &__wrapper {
 
-  }
-  &__inner {
-    padding: 14px 0 14px 14px;
-    width: 100%;
-    border-radius: 15px;
-    border: none;
-    background-color: #26526F8C;
-    color: $white;
-    font-family: "Inter";
-    font-size: 20px;
-    line-height: 1.25em;
+//   }
+//   &__inner {
+//     padding: 14px 0 14px 14px;
+//     width: 100%;
+//     border-radius: 15px;
+//     border: none;
+//     // background-color: #26526F8C;
+//     color: $white;
+//     font-family: "Inter";
+//     font-size: 20px;
+//     line-height: 1.25em;
 
-    &::placeholder {
-      color: #FFFFFFB2;
-    }
-  }
-}
+//     &::placeholder {
+//       color: #FFFFFFB2;
+//     }
+//   }
+// }
 </style>
