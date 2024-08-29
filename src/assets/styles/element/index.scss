@@ -18,35 +18,16 @@
     'content-bg-color': transparent,
     'content-font-size': auto,
   ),
-  $select-dropdown: (
-    'max-height': var(--el-dropdown-max-height),
-  ),
 );
 @use 'element-plus/theme-chalk/src/mixins/function' as *;
 @use 'element-plus/theme-chalk/src/input';
 @use 'element-plus/theme-chalk/src/base'; // for transition
-// @use 'element-plus/theme-chalk/src/form';
 @use 'element-plus/theme-chalk/src/slider';
+@use 'element-plus/theme-chalk/src/popper';
 @use 'element-plus/theme-chalk/src/form-item';
 @use 'element-plus/theme-chalk/src/input-number';
-@use 'element-plus/theme-chalk/src/select';
-@use 'element-plus/theme-chalk/src/scrollbar';
-@use 'element-plus/theme-chalk/src/popover';
-@use 'element-plus/theme-chalk/src/option';
-@use 'element-plus/theme-chalk/src/radio';
-@use 'element-plus/theme-chalk/src/rate';
-@use 'element-plus/theme-chalk/src/dropdown';
-@use 'element-plus/theme-chalk/src/dropdown-item';
-@use 'element-plus/theme-chalk/src/dropdown-menu';
 @use 'element-plus/theme-chalk/src/collapse';
-@use 'element-plus/theme-chalk/src/dialog';
-@use 'element-plus/theme-chalk/src/overlay';
-@use 'element-plus/theme-chalk/src/date-picker';
-@use 'element-plus/theme-chalk/src/breadcrumb';
 @use 'element-plus/theme-chalk/src/checkbox';
-@use 'element-plus/theme-chalk/src/image';
-@use 'element-plus/theme-chalk/src/image-viewer';
-@use 'element-plus/theme-chalk/src/notification';
 @use 'element-plus/theme-chalk/src/loading';
 
 @use '@/assets/styles/_variables' as *;
@@ -76,7 +57,20 @@
     &[type=number] {
       text-align: left;
     }
+
+    // &:focus {
+    //   .el-input-group__append {
+    //     border: 1px solid #6d859c;;
+    //   }
+    // }
   }
+  // &-group {
+  //   &__append {
+  //     --el-fill-color-light: #26526F8C;
+  //     border-top-right-radius: 15px;
+  //     border-bottom-right-radius: 15px;
+  //   }
+  // }
 }
 
 .el-slider {
@@ -111,7 +105,6 @@
 
 .el-checkbox {
   white-space: unset;
-
   &__input {
     --el-checkbox-input-height: 27px;
     --el-checkbox-input-width: 27px;
@@ -135,5 +128,24 @@
     color: #bcbcbc7e;
     --el-checkbox-checked-text-color: #b4bbc9;
 
+  }
+}
+
+.el-collapse {
+  --el-collapse-border-color: transparent;
+
+  &-item {
+    background-color: #26526FBF;
+    border-radius: 15px;
+
+    &__header {
+      padding: 15px 20px;
+      border-radius: 15px;
+    }
+    &__wrap {
+      padding: 0 20px;
+      --el-collapse-content-text-color: #FFFFFF;
+      border-radius: 15px;
+    }
   }
 }

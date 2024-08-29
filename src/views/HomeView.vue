@@ -6,7 +6,7 @@
         <CardTransparent img="steam-circle.png" text="<strong>Пополняй стим</strong><br>без проблем и задержек" />
         <CardTransparent text="Не требуется пароль,<br>доступ к стиму или трейду" />
       </div>
-      <TopUpForm />
+      <TopupForm />
       <div class="home__main--below-notifications">
         <CardColorful
           v-for="(card, id) in notificationCards"
@@ -16,14 +16,15 @@
           :title="card.title" />
       </div>
     </section>
+    <FAQ />
   </div>
-
 </template>
 
 <script setup lang="ts">
 import CardColorful from '@/components/cards/CardColorful.vue'
 import CardTransparent from '@/components/cards/CardTransparent.vue'
-import TopUpForm from '@/components/TopUpForm.vue'
+import FAQ from '@/components/FAQ.vue'
+import TopupForm from '@/components/TopupForm.vue'
 
 interface INotification {
   title: string;
@@ -43,6 +44,8 @@ const notificationCards: INotification[] = [
     theme: 'yellow'
   }
 ]
+
+
 </script>
 
 <style scoped lang="scss">
@@ -54,7 +57,7 @@ const notificationCards: INotification[] = [
   }
   &__main {
     margin-top: 30px;
-
+    margin-bottom: 100px;
     & > * {
       display: flex;
       column-gap: 30px;

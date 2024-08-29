@@ -2,37 +2,34 @@
   <ElForm class="topup" :model="form">
     <div class="topup__form">
       <ElFormItem class="topup__item" label="Логин Steam">
-        <ElInput
-          v-model="form.name"
-          class="topup__input" 
-          placeholder="Ваш логин"
-        >
-          <template #append>
+        <div class="topup__input--wrapper">
+          <ElInput
+            v-model="form.name"
+            class="topup__input" 
+            placeholder="Ваш логин"
+          />
+          <ElTooltip placement="top">
+            <template #content>
+              <p>Описание, где берется логин аккаунта</p>
+            </template>
             <div class="topup__input--tip">
               <p>Где взять логин</p>
               <div class="topup__input--tip-icon">?</div>
             </div> 
-          </template>
-        </ElInput>
-        <!--
-          <div class="topup__input--tip">
-          <p>Где взять логин</p>
-          <div class="topup__input--tip-icon">?</div>
-          </div> 
-        -->
+          </ElTooltip>
+        </div>
       </ElFormItem>
       <ElFormItem class="topup__item" label="Сумма">
-        <ElInputNumber 
-          v-model="form.amount"
-          :controls="false"
-          :max="priceRange.max"
-          :min="priceRange.min"
-          placeholder="Введите сумму"
-        >
-          <template #append>
-            <p class="topup__input--tip">Комиссия сервиса 18%</p>
-          </template>
-        </ElInputNumber>
+        <div class="topup__input--wrapper">
+          <ElInputNumber 
+            v-model="form.amount"
+            :controls="false"
+            :max="priceRange.max"
+            :min="priceRange.min"
+            placeholder="Введите сумму"
+          />
+          <p class="topup__input--tip">Комиссия сервиса 18%</p>
+        </div>
         <p class="topup__input--description">До 10 000 рублей</p>
       </ElFormItem>
       <ElFormItem>
@@ -51,14 +48,19 @@
     </div>
     <div class="topup__form">
       <ElFormItem label="Промокод">
-        <ElInput v-model="form.promo" placeholder="Введите промокод">
-          <template #append>
+        <div class="topup__input--wrapper">
+          <ElInput v-model="form.promo" placeholder="Введите промокод" />
+          <ElTooltip placement="top">
+            <template #content>
+              <p>Описание, где берется промокод</p>
+            </template>
             <div class="topup__input--tip">
               <p>Где взять промокод</p>
               <div class="topup__input--tip-icon">?</div>
             </div>
-          </template>
-        </ElInput>
+          </ElTooltip>
+        </div>
+
       </ElFormItem>
       <ElFormItem label="Итого">
         <div class="el-input">
@@ -144,16 +146,21 @@ function handleSendForm () {
     &--tip {
       position: absolute;
       right: 10px;
-      top: calc(50% - 8px);
+      top: calc(50% - 9px);
       display: flex;
+      align-items: center;
       column-gap: 5px;
       @extend %extra-small;
 
       &-icon {
-        padding: 0 5px;
+        padding: 0 7px;
+        line-height: 19px;
         background-color: #D9D9D926;
         border-radius: 100%;
       }
+    }
+    &--wrapper {
+      position: relative;
     }
     &--description {
       margin-top: 8px;
