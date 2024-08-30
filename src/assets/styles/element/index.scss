@@ -36,6 +36,9 @@
 .el-form-item__label {
   display: block;
   margin-bottom: 10px;
+  @media(min-width: $screen-xxl-min) {
+    margin-bottom: 0.52vw;
+  }
 }
 
 .el-input {
@@ -57,20 +60,18 @@
     &[type=number] {
       text-align: left;
     }
-
-    // &:focus {
-    //   .el-input-group__append {
-    //     border: 1px solid #6d859c;;
-    //   }
-    // }
   }
-  // &-group {
-  //   &__append {
-  //     --el-fill-color-light: #26526F8C;
-  //     border-top-right-radius: 15px;
-  //     border-bottom-right-radius: 15px;
-  //   }
-  // }
+  @media(min-width: $screen-xxl-min) {
+    --el-component-size: 2.71vw;
+    --el-font-size-base: 1.26vw;
+    &__wrapper {
+      padding: 0.58vw 0.78vw;
+      --el-input-border-radius: 0.78vw;
+    }
+    &__inner {
+      --el-input-inner-height: 1.56vw;
+    }
+  }
 }
 
 .el-slider {
@@ -101,6 +102,18 @@
   &__stop {
     --el-slider-stop-bg-color: transparent
   }
+  @media (min-width: $screen-xxl-min) {
+    &__runway {
+      --el-slider-height: 0.21vw;
+      --el-slider-border-radius: 0.21vw;
+    }
+    &__button {
+      --el-slider-button-size: 1.27vw;
+      &-wrapper {
+        --el-slider-button-wrapper-size: 1.77vw;
+      }
+    }
+  }
 }
 
 .el-checkbox {
@@ -127,25 +140,54 @@
     line-height: 1.25em;
     color: #bcbcbc7e;
     --el-checkbox-checked-text-color: #b4bbc9;
-
+  }
+  @media (min-width: $screen-xxl-min) {
+    &__input {
+      --el-checkbox-input-height: 1.4vw;
+      --el-checkbox-input-width: 1.4vw;
+    }
+    &__inner {
+      --el-checkbox-border-radius: 0.27vw;
+      &:after {
+        width: 0.52vw;
+        height: 0.78vw;
+        left: calc(50% - 0.30vw);
+        border-width: 0.1vw;
+      }
+    }
+    &__label {
+      padding-left: 0.51vw;
+      --el-checkbox-font-size: 0.84vw;
+    }
   }
 }
 
 .el-collapse {
   --el-collapse-border-color: transparent;
-
+  
   &-item {
     background-color: #26526FBF;
     border-radius: 15px;
-
     &__header {
       padding: 15px 20px;
       border-radius: 15px;
     }
     &__wrap {
       padding: 0 20px;
-      --el-collapse-content-text-color: #FFFFFF;
+      --el-collapse-content-text-color: #FFFFFFB2;
       border-radius: 15px;
+    }
+    @media (min-width: $screen-xxl-min) {
+      border-radius: 0.78vw;
+      &__header {
+        border-radius: 0.78vw;
+        padding: 0.78vw 1.041vw;
+        --el-collapse-header-font-size: 1.4vw;
+      }
+      &__wrap {
+        padding: 0 1.041vw;
+        border-radius: 0.78vw;
+      }
     }
   }
 }

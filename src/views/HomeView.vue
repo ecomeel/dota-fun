@@ -1,10 +1,14 @@
 <template>
   <div class="home">
-    <h1 class="home__title">SteamSupp</h1>
+    <h1 class="home__title">{{ siteName }}</h1>
     <section class="home__main">
       <div class="home__main--above-notifications">
-        <CardTransparent img="steam-circle.png" text="<strong>Пополняй стим</strong><br>без проблем и задержек" />
-        <CardTransparent text="Не требуется пароль,<br>доступ к стиму или трейду" />
+        <CardTransparent
+          v-for="(card, idx) in topsideCards"
+          :key="idx"
+          :img="card.img"
+          :text="card.text"
+        />
       </div>
       <TopupForm />
       <div class="home__main--below-notifications">
@@ -12,7 +16,7 @@
           v-for="(card, id) in notificationCards"
           :key="id"
           :description="card.description"
-          :theme="card.theme"
+          :theme="card.theme!"
           :title="card.title" />
       </div>
     </section>
@@ -26,11 +30,28 @@ import CardTransparent from '@/components/cards/CardTransparent.vue'
 import FAQ from '@/components/FAQ.vue'
 import TopupForm from '@/components/TopupForm.vue'
 
+const siteName = 'SteamSupp'
+
 interface INotification {
   title: string;
   description: string;
   theme: 'red' | 'yellow'
 }
+
+interface ITransparentCard {
+  text: string;
+  img?: string
+}
+
+const topsideCards: ITransparentCard[] = [
+  {
+    text: '<strong>Пополняй стим</strong><br>без проблем и задержек',
+    img: 'steam-circle.png'
+  },
+  {
+    text: 'Не требуется пароль,<br>доступ к стиму или трейду'
+  }
+]
 
 const notificationCards: INotification[] = [
   {
@@ -45,31 +66,49 @@ const notificationCards: INotification[] = [
   }
 ]
 
-
 </script>
 
 <style scoped lang="scss">
 .home {
   &__title {
-    font-size: 73px;
-    line-height: 1.2em;
+    @extend %extra-large;
     text-align: center;
   }
   &__main {
     margin-top: 30px;
     margin-bottom: 100px;
     & > * {
-      display: flex;
-      column-gap: 30px;
-
-      &:not(:first-child) {
-        margin-top: 30px;
+      &:not(:first-child), & > *:not(:first-child) {
+        margin-top: 20px;
       }
 
       & > * {
-        flex: 1 1 49%;
+        flex: 0 1 49%;
       }
     }
+
+    @media (min-width: $screen-sm-min) {
+      margin-bottom: 100px;
+      & > * {
+        width: 100%;
+        display: flex;
+        column-gap: 15px;
+        flex-direction: row;
+        & > *:not(:first-child) {
+          margin-top: 0;
+        }
+      }
+    }
+    @media (min-width: $screen-m-min) {
+      & > * {
+        column-gap: 25px;
+      }
+    }
+    @media (min-width: $screen-xl-min) {
+      margin: 2.2vw 0 5.2vw;
+      column-gap: 1.9vw;
+    }
   }
+
 }
 </style>

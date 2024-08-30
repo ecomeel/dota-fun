@@ -21,7 +21,7 @@ defineProps<Props>()
 
 <style lang="scss" scoped>
 .card {
-  padding: 25px 20px;
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   column-gap: 24px;
@@ -34,8 +34,20 @@ defineProps<Props>()
     }
   }
   &__text {
-    font-size: 28px;
-    line-height: 1.2em;
+    @extend %medium;
+  }
+
+  @media (min-width: $screen-m-min) {
+    padding: 25px 20px;
+
+  }
+  @media (min-width: $screen-xxl-min) {
+    padding: 1.31vw 1.04vw;
+    column-gap: 1.66vw;
+    border-radius: 0.78vw;
+    &__image img {
+      width: 3.6vw;
+    }
   }
 }
 </style>

@@ -19,15 +19,19 @@ defineProps<Props>()
 
 <style lang="scss" module>
 .card {
-  padding: 21px;
+  padding: 14px;
   border-radius: 15px;
   &__title {
-    font-size: 36px;
-    font-weight: 700;
+    @extend %large;
   }
   &__text {
-    margin-top: 10px;
-    font-size: 16px;
+    margin-top: 3px;
+    @extend %small;
+  }
+
+  @media (min-width: $screen-xxl-min) {
+    border-radius: 0.8vw;
+    padding: .9vw;
   }
 }
 </style>

@@ -12,7 +12,7 @@
       :name="index"
       :title="item.question"
     >
-      <p>{{ item.answer }}</p>
+      <p class="faq__description">{{ item.answer }}</p>
     </ElCollapseItem>
   </ElCollapse>
  </section>
@@ -51,7 +51,7 @@ const FAQs: Record<'answer' | 'question', string>[] = [
     answer: 'Тут какой-то текст описания. Тут какой-то текст описания.Тут какой-то текст описания.Тут какой-то текст описания. Тут какой-то текст описания. Тут какой-то текст описания.Тут какой-то текст описания.Тут какой-то текст описания. Тут какой-то текст описания. Тут какой-то текст описания.Тут какой-то текст описания.'
   },
   {
-    question: 'Как получить квитанцию об оплате?',
+    question: 'Как получить квитанцию об оплате?',
     answer: 'Тут какой-то текст описания. Тут какой-то текст описания.Тут какой-то текст описания.Тут какой-то текст описания. Тут какой-то текст описания. Тут какой-то текст описания.Тут какой-то текст описания.Тут какой-то текст описания. Тут какой-то текст описания. Тут какой-то текст описания.Тут какой-то текст описания.'
   },
   {
@@ -78,21 +78,24 @@ const activeFAQ = ref('1')
 <style lang="scss" scoped>
 .faq {
   &__title {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.25em;
+    @extend %large;
     text-align: center;
   }
   &__list {
     margin-top: 30px;
-
     & > div:not(:first-child) {
       margin-top: 10px;
     }
 
-    & > * p {
-      line-height: 1.25em;
+    @media (min-width: $screen-m-min) {
+      margin-top: 2vw;
+      & > div:not(:first-child) {
+        margin-top: 0.7vw;
+      }
     }
+  }
+  &__description {
+    @extend %normal;
   }
 }
 </style>

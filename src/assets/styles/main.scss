@@ -29,14 +29,14 @@ ul {
 
 html,
 body {
-    font-family: "Inter", serif; // Add font
+    @extend %normal;
+    font-family: "Inter", serif;
     font-size: 20px;
     line-height: 1.2em;
     font-weight: 400;
     color: white;
     background: radial-gradient(#26526F, #0F222F) no-repeat;
     scroll-behavior: smooth;
-    // height: 100%;
 }
 body {
     overflow-x: hidden;
@@ -49,7 +49,15 @@ body {
 }
 
 .container {
-  margin: 0 auto;
-  // width: 95vw;
-  width: 1155px;
+  width: 100%;
+  padding: 50px 20px 70px;
+  
+  @media (min-width: $screen-l-min) {
+    margin: 0 auto;
+    padding: 100px 0;
+    width: 90vw;
+  }
+  @media (min-width: $screen-xxl-min) {
+    width: 70vw !important;
+  }
 }

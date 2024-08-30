@@ -18,9 +18,9 @@ import TheHeader from '@/components/TheHeader.vue'
 </script>
 
 <style scoped lang="scss">
-.main {
-  padding: 100px 0;
-}
+// .main {
+//   padding: 100px 0;
+// }
 .bg {
   position: absolute;
   &__1 {

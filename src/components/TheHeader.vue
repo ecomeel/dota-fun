@@ -33,15 +33,40 @@ const navigationMenu = [
 
 <style lang="scss" scoped>
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 2020;
   background-color: $black;
   animation: show-navigation 1.2s;
 
   &__nav {
-    padding: 28px 0;
+    width: 100%;
+    padding: 22px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    & > li > a {
+      @extend %normal;
+    }
+    & > li:not(:first-of-type) {
+      display: none;
+
+      @media (min-width: $screen-sm-min) {
+        display: block;
+      }
+    }
+    @media (min-width: $screen-s-min) {
+      justify-content: space-around;
+      & > li:nth-of-type(2) {
+        display: block !important;
+      }
+    }
+    @media (min-width: $screen-xl-min) {
+      justify-content: space-between;
+      padding: 1.7vw 0;
+    }
   }
 }
+
 @keyframes show-navigation {
   from {
     transform: translateY(-100%);
