@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1 class="home__title">{{ siteName }}</h1>
+    <h1 id="topup" class="home__title" >{{ siteName }}</h1>
     <section class="home__main">
       <div class="home__main--above-notifications">
         <CardTransparent

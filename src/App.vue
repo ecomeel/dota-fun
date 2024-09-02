@@ -10,17 +10,15 @@
     src="/steam-bg.png"
     > 
   -->
-  <!-- Footer -->
+  <TheFooter />
 </template>
 
 <script setup lang="ts">
+import TheFooter from '@/components/TheFooter.vue'
 import TheHeader from '@/components/TheHeader.vue'
 </script>
 
 <style scoped lang="scss">
-// .main {
-//   padding: 100px 0;
-// }
 .bg {
   position: absolute;
   &__1 {

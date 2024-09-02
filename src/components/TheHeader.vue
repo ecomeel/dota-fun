@@ -18,7 +18,7 @@ const navigationMenu = [
   },
   {
     name: 'Пополнить стим',
-    url: ''
+    url: '#topup'
   },
   {
     name: 'Сделать подарок',
@@ -26,7 +26,7 @@ const navigationMenu = [
   },
   {
     name: 'FAQ',
-    url: ''
+    url: '#faq'
   }
 ]
 </script>
@@ -46,6 +46,12 @@ const navigationMenu = [
     justify-content: center;
     & > li > a {
       @extend %normal;
+      transition: all 0.2s linear;
+      
+      &:hover {
+        scale: 1.05;
+        color: $blue-gray;
+      }
     }
     & > li:not(:first-of-type) {
       display: none;

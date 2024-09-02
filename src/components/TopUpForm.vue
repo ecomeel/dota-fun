@@ -1,5 +1,8 @@
 <template>
-  <ElForm class="topup" :model="form">
+  <ElForm 
+    class="topup"
+    :model="form"
+  >
     <div class="topup__form">
       <ElFormItem class="topup__item" label="Логин Steam">
         <div class="topup__input--wrapper">
@@ -46,12 +49,12 @@
           Время зачисления до 60 секунд
         </p>
       </ElFormItem>
-      <ElFormItem label="Почта">
+      <ElFormItem class="topup__item" label="Почта">
         <ElInput v-model="form.email" placeholder="Для получения чека" />
       </ElFormItem>
     </div>
     <div class="topup__form">
-      <ElFormItem label="Промокод">
+      <ElFormItem class="topup__item" label="Промокод">
         <div class="topup__input--wrapper">
           <ElInput v-model="form.promo" placeholder="Введите промокод" />
           <ElTooltip placement="top">
@@ -68,7 +71,7 @@
         </div>
 
       </ElFormItem>
-      <ElFormItem label="Итого">
+      <ElFormItem class="topup__item" label="Итого">
         <div class="el-input">
           <div class="el-input__wrapper" type="total">
             <p class="el-input__inner">{{ totalSum }} рублей</p>
@@ -155,12 +158,12 @@ function handleSendForm () {
   }
   &__item {
     position: relative;
-    // TODO: Не рабоает увеличение шрифта на лэйбле
-    // @media (min-width: $screen-xxl-min) {
-    //   & label {
-    //     font-size: 200px;
-    //   }
-    // }
+    @media (min-width: $screen-xxl-min) {
+      & > *:first-of-type {
+        margin-bottom: 0.6vw;
+        font-size: 1.1vw;
+      }
+    }
   }
   &__field {
     @extend %medium;
@@ -225,6 +228,10 @@ function handleSendForm () {
     @media (min-width: $screen-xxl-min) {
       padding: 0.57vw 0.78vw;
       border-radius: 0.78vw;
+
+      p {
+        font-size: 0.9vw;
+      }
     }
   }
   &__button {

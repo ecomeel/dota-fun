@@ -109,9 +109,9 @@
     }
     &__button {
       --el-slider-button-size: 1.27vw;
-      &-wrapper {
-        --el-slider-button-wrapper-size: 1.77vw;
-      }
+      // &-wrapper {
+      //   // --el-slider-button-wrapper-size: 1.77vw;
+      // }
     }
   }
 }

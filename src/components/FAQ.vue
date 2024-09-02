@@ -1,5 +1,5 @@
 <template>
- <section class="faq">
+ <section id="faq" class="faq">
   <h2 class="faq__title">Вопросы и ответы</h2>
   <ElCollapse 
     v-model="activeFAQ"
