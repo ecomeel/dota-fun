@@ -6,6 +6,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore-next-line
 import CardTheme from '@/assets/styles/modules/Card.module.scss'
 
 type Props = {

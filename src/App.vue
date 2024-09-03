@@ -35,7 +35,7 @@ import TheHeader from '@/components/TheHeader.vue'
 .bg {
   position: absolute;
   z-index: 0;
-  // pointer-events: none;
+  pointer-events: none;
   display: none;
 
   &__top {
