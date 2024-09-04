@@ -23,6 +23,10 @@ export default defineConfig({
                         @use "@/assets/styles/extends" as *;`
       }
     }
+  },
+  build: {
+    outDir: './docs',
+    emptyOutDir: true,
   }
 })
 
