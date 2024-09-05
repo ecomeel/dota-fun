@@ -5,7 +5,8 @@
       <img alt="steam" src="/steam-bg.png">
     </div>
     <div class="container">
-      <RouterView />
+      <!-- <RouterView /> -->
+      <HomeView />
     </div>
     <div class="bg bg__bottom bg__bottom_left">
       <img alt="steam" src="/steam-circle.png">
@@ -19,6 +20,7 @@
 </template>
 
 <script setup lang="ts">
+import HomeView from '@/views/HomeView.vue';
 import TheFooter from '@/components/TheFooter.vue'
 import TheHeader from '@/components/TheHeader.vue'
 </script>
