@@ -1,10 +1,10 @@
 <template>
- <section id="faq" class="faq">
-  <h2 class="faq__title">Вопросы и ответы</h2>
+ <section id="faq" :class="$style.faq">
+  <h2 :class="$style.faq__title">Вопросы и ответы</h2>
   <ElCollapse 
     v-model="activeFAQ"
     accordion
-    class="faq__list"
+    :class="$style.faq__list"
   >
     <ElCollapseItem 
       v-for="(item, index) in FAQs"
@@ -12,7 +12,7 @@
       :name="index"
       :title="item.question"
     >
-      <div class="faq__description">{{ item.answer }}</div>
+      <div :class="$style.faq__description" v-html="item.answer" />
     </ElCollapseItem>
   </ElCollapse>
  </section>
@@ -23,10 +23,10 @@ import { FAQs } from '@/constants/faqs'
 import { ref } from 'vue'
 
 
-const activeFAQ = ref('1')
+const activeFAQ = ref('')
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .faq {
   &__title {
     @extend %large;
@@ -34,6 +34,9 @@ const activeFAQ = ref('1')
   }
   &__list {
     margin-top: 30px;
+    & button {
+      text-align: left;
+    }
     & > div:not(:first-child) {
       margin-top: 10px;
     }
@@ -47,6 +50,18 @@ const activeFAQ = ref('1')
   }
   &__description {
     @extend %normal;
+    a {
+      color: $purple;
+      text-decoration: underline;
+    }
+    img {
+      margin-top: 25px;
+    }
+  }
+  @media (width >= $screen-xl-min) {
+    &__description img {
+      margin-top: 1.74vw;
+    }
   }
 }
 </style>

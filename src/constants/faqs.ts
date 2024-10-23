@@ -3,7 +3,7 @@ export const FAQs: Record<'answer' | 'question', string>[] = [
     question: 'Что такое логин Steam?',
     answer: `
       <p>Логин стим это то, что вы указываете, когда заходите в стим ( Не ваш никнейм )! Вам необходимо указать именно логин! Он находится во вкладке об аккаунте, как указано на скриншоте ниже.</p>
-      <img src="@/assets/images/where_is_login.jpg" />
+      <img src="/where_is_login.jpg" />
     `
   },
   {
