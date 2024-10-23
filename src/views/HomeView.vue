@@ -30,7 +30,7 @@ import CardTransparent from '@/components/cards/CardTransparent.vue'
 import FAQ from '@/components/FAQ.vue'
 import TopupForm from '@/components/TopupForm.vue'
 
-const siteName = 'SteamSupp'
+const siteName = 'DotaFun'
 
 interface INotification {
   title: string;
