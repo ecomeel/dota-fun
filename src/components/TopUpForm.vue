@@ -74,8 +74,15 @@
         <p>Перед оплатой проверьте правильность указанного логина, иначе вы пополните стим другому человеку и мы не сможем вернуть деньги.</p>
       </div>
       <ElFormItem>
-        <ElCheckbox v-model="form.isAgree">Я принимаю условия Пользовательского соглашения
-          и подтверждаю ознакомление с FAQ</ElCheckbox>
+        <ElCheckbox v-model="form.isAgree">
+          <a 
+            href="https://joki-joya.ru/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Я принимаю условия Пользовательского соглашения и подтверждаю ознакомление с FAQ
+          </a>
+        </ElCheckbox>
       </ElFormItem>
       <button class="topup__button topup__field" @click.prevent="handleSendForm">Пополнить</button>
     </div>
