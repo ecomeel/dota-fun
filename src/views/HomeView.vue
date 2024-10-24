@@ -10,7 +10,10 @@
           :text="card.text"
         />
       </div>
-      <TopupForm />
+      <TopupForm 
+        v-model:loginPopup="isLoginPopupOpen"
+        v-model:promoPopup="isPromoPopupOpen"
+      />
       <div class="home__main--below-notifications">
         <CardColorful
           v-for="(card, id) in notificationCards"
@@ -21,14 +24,23 @@
       </div>
     </section>
     <FAQ />
+    <PopupFindLogin ref="modalFindLogin" v-model:loginPopup="isLoginPopupOpen" />
+    <PopupPromo ref="modalPromo" v-model:promoPopup="isPromoPopupOpen" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { defineAsyncComponent, ref, watch } from 'vue'
 import CardColorful from '@/components/cards/CardColorful.vue'
 import CardTransparent from '@/components/cards/CardTransparent.vue'
 import FAQ from '@/components/FAQ.vue'
 import TopupForm from '@/components/TopupForm.vue'
+
+const PopupFindLogin = defineAsyncComponent(() => import('@/components/popups/PopupFindLogin.vue'))
+const modalFindLogin = ref<InstanceType<typeof PopupFindLogin>>()
+
+const PopupPromo= defineAsyncComponent(() => import('@/components/popups/PopupPromo.vue'))
+const modalPromo = ref<InstanceType<typeof PopupPromo>>()
 
 const siteName = 'DotaFun'
 
@@ -66,10 +78,19 @@ const notificationCards: INotification[] = [
   }
 ]
 
+const isLoginPopupOpen = ref(false)
+const isPromoPopupOpen = ref(false)
+
+watch([isLoginPopupOpen, isPromoPopupOpen], () => {
+  console.log(isPromoPopupOpen.value)
+  document.querySelectorAll('.el-overlay-dialog')?.forEach(el => el.classList.toggle('blur-bg'))
+})
+
 </script>
 
 <style scoped lang="scss">
 .home {
+  position: relative;
   &__title {
     @extend %extra-large;
     text-align: center;

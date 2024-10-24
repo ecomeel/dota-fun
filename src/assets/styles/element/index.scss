@@ -26,6 +26,7 @@
 @use 'element-plus/theme-chalk/src/popper';
 @use 'element-plus/theme-chalk/src/form-item';
 @use 'element-plus/theme-chalk/src/input-number';
+@use 'element-plus/theme-chalk/src/dialog';
 @use 'element-plus/theme-chalk/src/collapse';
 @use 'element-plus/theme-chalk/src/checkbox';
 @use 'element-plus/theme-chalk/src/loading';
@@ -74,6 +75,15 @@
   }
 }
 
+.el-overlay-dialog {
+  z-index: 1000;
+}
+.el-dialog {
+  // --el-dialog-bg-color: transparent;
+  --el-dialog-bg-color: #152936f1;
+
+}
+
 .el-slider {
   width: 97.5%;
   margin: 0 auto;
@@ -109,15 +119,13 @@
     }
     &__button {
       --el-slider-button-size: 1.27vw;
-      // &-wrapper {
-      //   // --el-slider-button-wrapper-size: 1.77vw;
-      // }
     }
   }
 }
 
 .el-checkbox {
   white-space: unset;
+  z-index: 0;
   &__input {
     --el-checkbox-input-height: 27px;
     --el-checkbox-input-width: 27px;

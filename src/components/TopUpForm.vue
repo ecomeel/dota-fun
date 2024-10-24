@@ -11,15 +11,10 @@
             class="topup__input" 
             placeholder="Ваш логин"
           />
-          <ElTooltip placement="top">
-            <template #content>
-              <p>Описание, где берется логин аккаунта</p>
-            </template>
-            <div class="topup__input--tip">
+            <button class="topup__input--tip" @click.prevent="isLoginPopupOpen = true">
               <p>Где взять логин</p>
               <div class="topup__input--tip-icon">?</div>
-            </div> 
-          </ElTooltip>
+            </button> 
         </div>
       </ElFormItem>
       <ElFormItem class="topup__item" label="Сумма">
@@ -57,19 +52,16 @@
       <ElFormItem class="topup__item" label="Промокод">
         <div class="topup__input--wrapper">
           <ElInput v-model="form.promo" placeholder="Введите промокод" />
-          <ElTooltip placement="top">
-            <template #content>
-              <p>Описание, где берется промокод</p>
-            </template>
-            <div class="topup__input--tip">
+            <button 
+              class="topup__input--tip" 
+              @click.prevent="isPromoPopupOpen = true"
+            >
               <p v-if="breakpoints.greater('small_mobile').value">
                 {{ breakpoints.greater('large_tablet').value ? 'Где взять промокод' : 'Промокод' }}
               </p>
               <div class="topup__input--tip-icon">?</div>
-            </div>
-          </ElTooltip>
+            </button>
         </div>
-
       </ElFormItem>
       <ElFormItem class="topup__item" label="Итого">
         <div class="el-input">
@@ -94,6 +86,8 @@
 import { computed, ref } from 'vue'
 import { useBreakpoints } from '@vueuse/core'
 
+const isLoginPopupOpen = defineModel<boolean>('loginPopup')
+const isPromoPopupOpen = defineModel<boolean>('promoPopup')
 
 const breakpoints = useBreakpoints({
   small_mobile: 375,
@@ -133,9 +127,16 @@ const priceRangeMarks = {
 function handleSendForm () {
   console.log('Send form')
 }
+
 </script>
 
 <style scoped lang="scss">
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .topup {
   &__form {
     padding: 25px 20px;
