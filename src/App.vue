@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import HomeView from '@/views/HomeView.vue';
+import HomeView from '@/views/HomeView.vue'
 import TheFooter from '@/components/TheFooter.vue'
 import TheHeader from '@/components/TheHeader.vue'
 </script>
