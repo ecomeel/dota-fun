@@ -1,8 +1,6 @@
 // /* eslint-env node */
 require('@rushstack/eslint-patch/modern-module-resolution')
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production'
-
 module.exports = {
   root: true,
   'extends': [
@@ -22,23 +20,26 @@ module.exports = {
   },
   rules: {
     // basic rules
-    'no-console': IS_PRODUCTION ? 'error' : 'warn',
-    'no-debugger': IS_PRODUCTION ? 'error' : 'warn',
+    'no-console': 'warn',
+    'semi': ['error', 'never'],
+    'eqeqeq': 'warn',
+    'func-call-spacing': 'warn',
+    'object-curly-spacing': ['warn', 'always'],
+    'arrow-body-style': ['error', 'as-needed'],
+    'indent': ['error', 2],
+
     'vue/array-bracket-spacing': ['error', 'always'],
     'vue/arrow-spacing': 'error',
     'vue/block-spacing': 'error',
     'vue/brace-style': 'error',
     'vue/comma-spacing': 'error',
     'vue/eqeqeq': 'warn',
-    'func-call-spacing': 'warn',
     'vue/no-extra-parens': 'warn',
     'vue/prefer-template': 'warn',
-    'object-curly-spacing': ['warn', 'always'],
     'vue/space-in-parens': ['warn', 'never'],
     'vue/space-infix-ops': 'error',
     'vue/space-unary-ops': 'error',
     'vue/template-curly-spacing': ['warn', 'never'],
-    indent: ['error', 2],
 
     // vue.js 3 rules
     'vue/max-attributes-per-line': ['error', {
