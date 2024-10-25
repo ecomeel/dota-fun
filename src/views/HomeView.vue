@@ -36,12 +36,15 @@ import CardTransparent from '@/components/cards/CardTransparent.vue'
 import FAQ from '@/components/FAQ.vue'
 import TopupForm from '@/components/TopupForm.vue'
 
+<<<<<<< HEAD
 const PopupFindLogin = defineAsyncComponent(() => import('@/components/popups/PopupFindLogin.vue'))
 const modalFindLogin = ref<InstanceType<typeof PopupFindLogin>>()
 
 const PopupPromo= defineAsyncComponent(() => import('@/components/popups/PopupPromo.vue'))
 const modalPromo = ref<InstanceType<typeof PopupPromo>>()
 
+=======
+>>>>>>> main
 const siteName = 'DotaFun'
 
 interface INotification {
