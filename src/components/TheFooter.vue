@@ -19,16 +19,7 @@
         src="/steam-bg.png"
         >
       </div> 
-     
     </div>
-    <!--
-      <div class="footer__img_right">
-      <img 
-      alt="steam"
-      src="/steam-bg.png"
-      >
-      </div> 
-    -->
   </footer>
 </template>
 
