@@ -22,7 +22,6 @@
 import { FAQs } from '@/constants/faqs'
 import { ref } from 'vue'
 
-
 const activeFAQ = ref('')
 </script>
 
