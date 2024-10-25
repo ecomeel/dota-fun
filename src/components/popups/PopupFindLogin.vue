@@ -21,16 +21,15 @@ const isPopupOpen = defineModel<boolean>('loginPopup')
 </script>
   
 <style lang="scss" module>
+@use '@/assets/styles/modules/Popup.module.scss';
+
 .popup {
-  width: 85%;
-  border-radius: 32px;
   p {
-    @extend %normal;
     padding-right: 10%;
-    color: $white;
   }
   img {
     margin-top: 25px;
+    border-radius: 32px;
   }
 }
 </style>

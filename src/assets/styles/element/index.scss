@@ -79,9 +79,17 @@
   z-index: 1000;
 }
 .el-dialog {
-  // --el-dialog-bg-color: transparent;
   --el-dialog-bg-color: #152936f1;
-
+  &__headerbtn {
+    top: 5px;
+    right: 5px;
+  }
+  @media (min-width: $screen-xl-min) {
+    &__headerbtn {
+      top: .55vw;
+      right: .55vw;
+    }
+  }
 }
 
 .el-slider {
@@ -144,10 +152,11 @@
   }
   &__label {
     --el-checkbox-font-size: 12px;
+    --el-checkbox-checked-text-color: #b4bbc9;
     font-family: Inter, sans-serif;
     line-height: 1.25em;
     color: #bcbcbc7e;
-    --el-checkbox-checked-text-color: #b4bbc9;
+    text-decoration: underline;
   }
   @media (min-width: $screen-xxl-min) {
     &__input {

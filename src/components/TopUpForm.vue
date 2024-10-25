@@ -76,7 +76,7 @@
       <ElFormItem>
         <ElCheckbox v-model="form.isAgree">
           <a 
-            href="https://joki-joya.ru/"
+            href="https://www.google.com/"
             rel="noopener noreferrer"
             target="_blank"
           >

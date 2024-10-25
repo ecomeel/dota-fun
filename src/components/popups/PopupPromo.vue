@@ -18,13 +18,11 @@ const isPopupOpen = defineModel<boolean>('promoPopup')
 </script>
   
 <style lang="scss" module>
+@use '@/assets/styles/modules/Popup.module.scss';
+
 .popup {
-  width: 85%;
-  border-radius: 32px;
   p {
-    @extend %normal;
     padding-right: 5%;
-    color: $white;
   }
   a {
     color: $purple;
